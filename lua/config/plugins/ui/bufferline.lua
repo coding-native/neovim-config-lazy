@@ -1,6 +1,5 @@
 return {
     "akinsho/bufferline.nvim",
-    lazy = false,
     init = function()
         vim.keymap.set('n', 'gt', [[:BufferLineCycleNext<CR>]])
         vim.keymap.set('n', 'gT', [[:BufferLineCyclePrev<CR>]])

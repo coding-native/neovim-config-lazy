@@ -2,20 +2,14 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        { "hrsh7th/cmp-nvim-lsp" },
-        { "hrsh7th/cmp-buffer" },
-        { "hrsh7th/cmp-path" },
-        { "hrsh7th/cmp-cmdline" },
-        { "hrsh7th/nvim-cmp" },
+        { "saghen/blink.cmp" },
         { "L3MON4D3/LuaSnip" },
-        { "saadparwaiz1/cmp_luasnip" },
-        { "towolf/vim-helm",         ft = "helm" },
-        { "joerdav/templ.vim",       ft = "templ" },
+        { "towolf/vim-helm",   ft = "helm" },
+        { "joerdav/templ.vim", ft = "templ" },
     },
     config = function()
-        local lspconfig = require("lspconfig")
+        local lspconfig = vim.lsp.config
         local mason_lspconfig = require("mason-lspconfig")
-        local cmp = require("cmp")
         local luasnip = require("luasnip")
 
         vim.keymap.set({ "i", "s" }, "<C-k>", function()
@@ -96,71 +90,14 @@ return {
         end
 
 
-
-        local has_words_before = function()
-            local line, col = table.unpack(vim.api.nvim_win_get_cursor(0))
-            return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-        end
-
-        cmp.setup({
-            mapping = { -- Preset: ^n, ^p, ^y, ^e, you know the drill..
-                ['<Tab>'] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_next_item()
-                    elseif luasnip.expand_or_jumpable() then
-                        luasnip.expand_or_jump()
-                    elseif has_words_before() then
-                        cmp.complete()
-                    else
-                        fallback()
-                    end
-                end, { 'i', 's' }),
-                ['<S-Tab>'] = cmp.mapping(function(fallback)
-                    if cmp.visible() then
-                        cmp.select_prev_item()
-                    elseif luasnip.jumpable(-1) then
-                        luasnip.jump(-1)
-                    else
-                        fallback()
-                    end
-                end, { 'i', 's' }),
-                ["<C-Space>"] = cmp.mapping.complete(),
-                ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-4)),
-                ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4)),
-                ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-                ['<C-e>'] = cmp.mapping({
-                    i = cmp.mapping.abort(),
-                    c = cmp.mapping.close(),
-                }),
-                ['<CR>'] = cmp.mapping.confirm({ select = true })
-            },
-            snippet = {
-                expand = function(args)
-                    require("luasnip").lsp_expand(args.body)
-                end,
-            },
-            sources = cmp.config.sources({
-                { name = "nvim_lsp" },
-                { name = "nvim_lsp_signature_help" },
-                { name = "nvim_lua" },
-                { name = "luasnip" },
-                { name = "path" },
-            }, {
-                { name = "buffer", keyword_length = 3 },
-            }),
-            experimental = {
-                ghost_text = true
-            }
-        })
-
-        local capabilities = require("cmp_nvim_lsp").default_capabilities()
+        local capabilities = require('blink.cmp').get_lsp_capabilities()
         local lsp_flags = {
             debounce_text_changes = 150,
         }
 
         vim.lsp.set_log_level("info")
 
-        mason_lspconfig.setup_handlers({
+        mason_lspconfig.setup({
             function(server_name)
                 lspconfig[server_name].setup({
                     capabilities = capabilities,

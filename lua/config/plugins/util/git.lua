@@ -1,10 +1,7 @@
 return {
     "lewis6991/gitsigns.nvim",
-    config = function()
-        local status, gitsigns = pcall(require, 'gitsigns')
-        if (not status) then return end
-
-        local function on_attach(bufnr)
+    opts = function()
+        local on_attach = function(bufnr)
             local gs = package.loaded.gitsigns
 
             local function map(mode, l, r, opts)
@@ -44,7 +41,7 @@ return {
             -- Text object
             map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
         end
-        local opts = {
+        return {
             signs                        = {
                 add          = { text = '│' },
                 change       = { text = '│' },
@@ -84,7 +81,5 @@ return {
             },
             on_attach                    = on_attach,
         }
-
-        gitsigns.setup(opts)
     end
 }
