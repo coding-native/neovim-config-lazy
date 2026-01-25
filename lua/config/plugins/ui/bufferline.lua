@@ -26,11 +26,8 @@ return {
         }
 
         bufferline.setup(opts)
+
+        vim.keymap.set('n', 'gt', [[:BufferLineCycleNext<CR>]])
+        vim.keymap.set('n', 'gT', [[:BufferLineCyclePrev<CR>]])
     end,
-    keys = {
-        { 'gt', '<cmd>BufferLineCycleNext<CR>', mode = 'n', desc = 'Next Buffer' },
-        { 'gT', '<cmd>BufferLineCyclePrev<CR>', mode = 'n', desc = 'Previous Buffer' },
-        { 'm]', '<cmd>BufferLineCycleNext<CR>', mode = 'n', desc = 'Next Buffer' },
-        { '[m', '<cmd>BufferLineCyclePrev<CR>', mode = 'n', desc = 'Previous Buffer' },
-    }
 }

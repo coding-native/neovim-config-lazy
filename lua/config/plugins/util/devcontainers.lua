@@ -21,12 +21,11 @@ return {
         }
 
         devcontainer.setup(opts)
+
+        vim.keymap.set('n', '<leader>dcs', [[:DevcontainerStart<CR>]])
+        vim.keymap.set('n', '<leader>dca', [[:DevcontainerAttach<CR>]])
+        vim.keymap.set('n', '<leader>dcr', [[:DevcontainerStop<CR>]])
+        vim.keymap.set('n', '<leader>dcf', [[:DevcontainerFullScreenEnter<CR>]])
+        vim.keymap.set('n', '<leader>dcff', [[:DevcontainerFullScreenExit<CR>]])
     end,
-    keys = {
-        { '<leader>dcs',  '<cmd>DevcontainerStart<CR>',           desc = 'Devcontainer Start' },
-        { '<leader>dca',  '<cmd>DevcontainerAttach<CR>',          desc = 'Devcontainer Attach' },
-        { '<leader>dcr',  '<cmd>DevcontainerStop<CR>',            desc = 'Devcontainer Stop' },
-        { '<leader>dcf',  '<cmd>DevcontainerFullScreenEnter<CR>', desc = 'Devcontainer Full Screen Enter' },
-        { '<leader>dcff', '<cmd>DevcontainerFullScreenExit<CR>',  desc = 'Devcontainer Full Screen Exit' },
-    },
 }

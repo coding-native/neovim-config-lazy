@@ -77,14 +77,16 @@ return {
             },
         }
         telescope.setup(opts)
+
+        vim.keymap.set('n', '<leader>bb', builtin.buffers)
+        vim.keymap.set('n', '<leader>ff', builtin.find_files)
+        vim.keymap.set('n', '<leader>fg', builtin.live_grep)
+        vim.keymap.set('n', '<leader>fb', ':Telescope file_browser<CR>', { noremap = true })
+        vim.keymap.set('n', '<leader>fbb', ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+            { noremap = true })
+        vim.keymap.set('n', '<leader>fh', builtin.help_tags)
+
+        telescope.load_extension('zoxide')
+        vim.keymap.set('n', '<leader>cd', telescope.extensions.zoxide.list)
     end,
-    keys = {
-        { "<leader>bb",  "<cmd>Telescope buffers<cr>",                                    desc = "Find Files" },
-        { "<leader>ff",  "<cmd>Telescope find_files<cr>",                                 desc = "Find Files" },
-        { "<leader>fg",  "<cmd>Telescope live_grep_args<cr>",                             desc = "Live Grep" },
-        { "<leader>fb",  "<cmd>Telescope file_browser<cr>",                               desc = "File Browser" },
-        { "<leader>fbb", "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>", desc = "BibTeX" },
-        { "<leader>fh",  "<cmd>Telescope help_tags<cr>",                                  desc = "Help Tags" },
-        { "<leader>fz",  "<cmd>Telescope zoxide list<cr>",                                desc = "Zoxide" },
-    }
 }

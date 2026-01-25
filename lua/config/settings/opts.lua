@@ -21,3 +21,6 @@ vim.opt.splitright = true
 
 -- Autoformat
 vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
