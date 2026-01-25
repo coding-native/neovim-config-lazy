@@ -1,9 +1,7 @@
 return {
     "nvim-lualine/lualine.nvim",
     lazy = false,
-    config = function()
-        local lualine = require('lualine')
-
+    opts = function()
         -- Color table for highlights
         -- stylua: ignore
         local colors = {
@@ -221,6 +219,6 @@ return {
         }
 
         -- Now don't forget to initialize lualine
-        lualine.setup(config)
+        return config
     end
 }

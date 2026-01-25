@@ -3,10 +3,7 @@ return {
     branch = "harpoon2",
     -- Plenary installed elsewhere
     -- requires = { {"nvim-lua/plenary.nvim"} },
-    config = function()
-        local harpoon = require("harpoon")
-        harpoon:setup {}
-    end,
+    opts = {},
     keys = {
         {
             "<leader>a",

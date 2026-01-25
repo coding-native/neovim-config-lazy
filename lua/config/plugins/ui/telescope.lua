@@ -7,16 +7,18 @@ return {
         { "nvim-telescope/telescope-ui-select.nvim" },
         { "jvgrootveld/telescope-zoxide" },
     },
-    config = function()
+    init = function()
         local telescope = require("telescope")
-        local actions = require('telescope.actions')
-        local lga_actions = require('telescope-live-grep-args.actions')
-        local builtin = require('telescope.builtin')
-        local z_utils = require('telescope._extensions.zoxide.utils')
 
         telescope.load_extension("live_grep_args")
         telescope.load_extension("file_browser")
-        local opts = {
+        telescope.load_extension('zoxide')
+    end,
+    opts = function()
+        local actions = require('telescope.actions')
+        local lga_actions = require('telescope-live-grep-args.actions')
+        local z_utils = require('telescope._extensions.zoxide.utils')
+        return {
             defaults = {
                 mappings = {
                     n = {
@@ -76,17 +78,13 @@ return {
                 },
             },
         }
-        telescope.setup(opts)
-
-        vim.keymap.set('n', '<leader>bb', builtin.buffers)
-        vim.keymap.set('n', '<leader>ff', builtin.find_files)
-        vim.keymap.set('n', '<leader>fg', builtin.live_grep)
-        vim.keymap.set('n', '<leader>fb', ':Telescope file_browser<CR>', { noremap = true })
-        vim.keymap.set('n', '<leader>fbb', ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
-            { noremap = true })
-        vim.keymap.set('n', '<leader>fh', builtin.help_tags)
-
-        telescope.load_extension('zoxide')
-        vim.keymap.set('n', '<leader>cd', telescope.extensions.zoxide.list)
     end,
+    keys = {
+        { "<leader>bb",  "<cmd>Telescope buffers<cr>",                                    desc = "Buffers" },
+        { "<leader>ff",  "<cmd>Telescope find_files<cr>",                                 desc = "Find Files" },
+        { "<leader>fg",  "<cmd>Telescope live_grep_args<cr>",                             desc = "Live Grep Args" },
+        { "<leader>fb",  "<cmd>Telescope file_browser<cr>",                               desc = "File Browser" },
+        { "<leader>fbb", "<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>", desc = "File Browser (cwd)" },
+        { "<leader>fz",  "<cmd>Telescope zoxide list<cr>",                                desc = "Zoxide" },
+    }
 }

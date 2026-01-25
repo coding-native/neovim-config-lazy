@@ -158,6 +158,8 @@ return {
             debounce_text_changes = 150,
         }
 
+        vim.lsp.set_log_level("info")
+
         mason_lspconfig.setup_handlers({
             function(server_name)
                 lspconfig[server_name].setup({

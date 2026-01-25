@@ -44,7 +44,6 @@ return {
             -- Text object
             map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
         end
-
         local opts = {
             signs                        = {
                 add          = { text = '│' },

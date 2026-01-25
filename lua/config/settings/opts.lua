@@ -1,6 +1,5 @@
 -- General
 vim.opt.mouse = "a"
-vim.g.mapleader = ';'
 vim.opt.autoread = true
 vim.opt.laststatus = 3
 
@@ -24,3 +23,12 @@ vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
 
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+-- This is also a good place to setup other settings (vim.opt)
+vim.g.mapleader = ";"
+vim.g.maplocalleader = "\\"
