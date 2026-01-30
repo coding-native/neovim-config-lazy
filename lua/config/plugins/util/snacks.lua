@@ -63,11 +63,35 @@ return {
 			desc = "Notification History",
 		},
 		{
-			"<leader>e",
+			"<leader>ee",
 			function()
 				Snacks.explorer()
 			end,
 			desc = "File Explorer",
+		},
+		{
+			"<leader>ef",
+			function()
+				local explorer_pickers = Snacks.picker.get({ source = "explorer" })
+				for _, picker in pairs(explorer_pickers) do
+					if picker:is_focused() then
+						picker:close()
+					else
+						picker:focus()
+					end
+				end
+				if #explorer_pickers == 0 then
+					Snacks.explorer()
+				end
+			end,
+			desc = "File Explorer",
+		},
+		{
+			"<leader>er",
+			function()
+				Snacks.explorer.reveal()
+			end,
+			desc = "Focus File Explorer",
 		},
 		-- find
 		{
