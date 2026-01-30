@@ -1,5 +1,6 @@
 return {
 	"folke/tokyonight.nvim",
+	lazy = false,
 	init = function()
 		vim.cmd([[ colorscheme tokyonight-night ]])
 		vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#ec5f67" })
