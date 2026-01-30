@@ -109,69 +109,69 @@ Why didn't I use a distro? I like to have full control over my configuration and
 
 ### Snacks
 
-Below is a list of the most important Snacks keybindings. All keys use `<leader>` by default, and most are available in normal mode unless noted otherwise.
+Below is a list of the most important Snacks keybindings. All keys use `;` by default, and most are available in normal mode unless noted otherwise.
 
 #### Pickers & Explorer
 | Key                | Description                  |
 |--------------------|------------------------------|
-| `<leader><space>`  | Smart Find Files             |
-| `<leader>,`        | Buffers                      |
-| `<leader>/`        | Grep                         |
-| `<leader>:`        | Command History              |
-| `<leader>n`        | Notification History         |
-| `<leader>e`        | File Explorer                |
-| `<leader>fb`       | Find Buffers                 |
-| `<leader>fc`       | Find Config File             |
-| `<leader>ff`       | Find Files                   |
-| `<leader>fg`       | Find Git Files               |
-| `<leader>fp`       | Projects                     |
-| `<leader>fr`       | Recent Files                 |
+| `;<space>`  | Smart Find Files             |
+| `;,`        | Buffers                      |
+| `;/`        | Grep                         |
+| `;:`        | Command History              |
+| `;n`        | Notification History         |
+| `;e`        | File Explorer                |
+| `;fb`       | Find Buffers                 |
+| `;fc`       | Find Config File             |
+| `;ff`       | Find Files                   |
+| `;fg`       | Find Git Files               |
+| `;fp`       | Projects                     |
+| `;fr`       | Recent Files                 |
 
 #### Git
 | Key                | Description                  |
 |--------------------|------------------------------|
-| `<leader>gb`       | Git Branches                 |
-| `<leader>gl`       | Git Log                      |
-| `<leader>gL`       | Git Log Line                 |
-| `<leader>gs`       | Git Status                   |
-| `<leader>gS`       | Git Stash                    |
-| `<leader>gd`       | Git Diff (Hunks)             |
-| `<leader>gf`       | Git Log File                 |
-| `<leader>gi`       | GitHub Issues (open)         |
-| `<leader>gI`       | GitHub Issues (all)          |
-| `<leader>gp`       | GitHub PRs (open)            |
-| `<leader>gP`       | GitHub PRs (all)             |
-| `<leader>gB`       | Git Browse (n,v modes)       |
-| `<leader>gg`       | Lazygit                      |
+| `;gb`       | Git Branches                 |
+| `;gl`       | Git Log                      |
+| `;gL`       | Git Log Line                 |
+| `;gs`       | Git Status                   |
+| `;gS`       | Git Stash                    |
+| `;gd`       | Git Diff (Hunks)             |
+| `;gf`       | Git Log File                 |
+| `;gi`       | GitHub Issues (open)         |
+| `;gI`       | GitHub Issues (all)          |
+| `;gp`       | GitHub PRs (open)            |
+| `;gP`       | GitHub PRs (all)             |
+| `;gB`       | Git Browse (n,v modes)       |
+| `;gg`       | Lazygit                      |
 
 #### Grep & Search
 | Key                | Description                  |
 |--------------------|------------------------------|
-| `<leader>sb`       | Buffer Lines                 |
-| `<leader>sB`       | Grep Open Buffers            |
-| `<leader>sg`       | Grep                         |
-| `<leader>sw`       | Grep Word (n,x modes)        |
-| `<leader>s"`       | Registers                    |
-| `<leader>s/`       | Search History               |
-| `<leader>sa`       | Autocmds                     |
-| `<leader>sc`       | Command History              |
-| `<leader>sC`       | Commands                     |
-| `<leader>sd`       | Diagnostics                  |
-| `<leader>sD`       | Buffer Diagnostics           |
-| `<leader>sh`       | Help Pages                   |
-| `<leader>sH`       | Highlights                   |
-| `<leader>si`       | Icons                        |
-| `<leader>sj`       | Jumps                        |
-| `<leader>sk`       | Keymaps                      |
-| `<leader>sl`       | Location List                |
-| `<leader>sm`       | Marks                        |
-| `<leader>sM`       | Man Pages                    |
-| `<leader>sp`       | Plugin Spec                  |
-| `<leader>sq`       | Quickfix List                |
-| `<leader>sR`       | Resume                       |
-| `<leader>su`       | Undo History                 |
-| `<leader>ss`       | LSP Symbols                  |
-| `<leader>sS`       | LSP Workspace Symbols        |
+| `;sb`       | Buffer Lines                 |
+| `;sB`       | Grep Open Buffers            |
+| `;sg`       | Grep                         |
+| `;sw`       | Grep Word (n,x modes)        |
+| `;s"`       | Registers                    |
+| `;s/`       | Search History               |
+| `;sa`       | Autocmds                     |
+| `;sc`       | Command History              |
+| `;sC`       | Commands                     |
+| `;sd`       | Diagnostics                  |
+| `;sD`       | Buffer Diagnostics           |
+| `;sh`       | Help Pages                   |
+| `;sH`       | Highlights                   |
+| `;si`       | Icons                        |
+| `;sj`       | Jumps                        |
+| `;sk`       | Keymaps                      |
+| `;sl`       | Location List                |
+| `;sm`       | Marks                        |
+| `;sM`       | Man Pages                    |
+| `;sp`       | Plugin Spec                  |
+| `;sq`       | Quickfix List                |
+| `;sR`       | Resume                       |
+| `;su`       | Undo History                 |
+| `;ss`       | LSP Symbols                  |
+| `;sS`       | LSP Workspace Symbols        |
 
 #### LSP (Language Server Protocol)
 | Key      | Description                |
@@ -187,31 +187,31 @@ Below is a list of the most important Snacks keybindings. All keys use `<leader>
 #### Toggles & Utilities
 | Key              | Description                      |
 |------------------|----------------------------------|
-| `<leader>z`      | Toggle Zen Mode                  |
-| `<leader>Z`      | Toggle Zoom                      |
-| `<leader>.`      | Toggle Scratch Buffer            |
-| `<leader>S`      | Select Scratch Buffer            |
-| `<leader>bd`     | Delete Buffer                    |
-| `<leader>cR`     | Rename File                      |
-| `<leader>un`     | Dismiss All Notifications        |
+| `;z`      | Toggle Zen Mode                  |
+| `;Z`      | Toggle Zoom                      |
+| `;.`      | Toggle Scratch Buffer            |
+| `;S`      | Select Scratch Buffer            |
+| `;bd`     | Delete Buffer                    |
+| `;cR`     | Rename File                      |
+| `;un`     | Dismiss All Notifications        |
 | `<c-/>` or `<c-_>` | Toggle Terminal                |
-| `<leader>N`      | Neovim News                      |
+| `;N`      | Neovim News                      |
 | `]] / [[`        | Next / Prev Reference            |
 
 #### Toggle Options
 | Key              | Description                         |
 |------------------|-------------------------------------|
-| `<leader>us`     | Toggle Spell Check                  |
-| `<leader>uw`     | Toggle Wrap                         |
-| `<leader>uL`     | Toggle Relative Line Number         |
-| `<leader>ud`     | Toggle Diagnostics                  |
-| `<leader>ul`     | Toggle Line Number                  |
-| `<leader>uc`     | Toggle Conceallevel                 |
-| `<leader>uT`     | Toggle Treesitter                   |
-| `<leader>ub`     | Toggle Dark Background              |
-| `<leader>uh`     | Toggle Inlay Hints                  |
-| `<leader>ug`     | Toggle Indent Guides                |
-| `<leader>uD`     | Toggle Dimming Inactive Windows     |
+| `;us`     | Toggle Spell Check                  |
+| `;uw`     | Toggle Wrap                         |
+| `;uL`     | Toggle Relative Line Number         |
+| `;ud`     | Toggle Diagnostics                  |
+| `;ul`     | Toggle Line Number                  |
+| `;uc`     | Toggle Conceallevel                 |
+| `;uT`     | Toggle Treesitter                   |
+| `;ub`     | Toggle Dark Background              |
+| `;uh`     | Toggle Inlay Hints                  |
+| `;ug`     | Toggle Indent Guides                |
+| `;uD`     | Toggle Dimming Inactive Windows     |
 
 > For even more snacks functionality, check out notifications, history, toggles, and plugin integrations!
 
