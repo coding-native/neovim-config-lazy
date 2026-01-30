@@ -155,7 +155,7 @@ return {
 		ins_left({
 			-- Lsp server name .
 			function()
-				local msg = "No LSP. Big fuck, tell Tony"
+				local msg = "No LSP..."
 				local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
 				local clients = vim.lsp.get_clients()
 
