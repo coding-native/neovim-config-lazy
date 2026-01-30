@@ -1,16 +1,22 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
-	lazy = false,
 	event = { "BufReadPost", "BufNewFile" },
 	init = function()
 		vim.treesitter.language.register("templ", "templ")
 		vim.treesitter.language.register("twig", "tera")
+		vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+		vim.wo[0][0].foldmethod = "expr"
+		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 		vim.api.nvim_create_autocmd({ "FileType" }, {
+			pattern = { "*" },
 			callback = function()
-				vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
-				vim.wo[0][0].foldmethod = "expr"
-				vim.bo.indentexpr = "v:lua.vim.treesitter.indent()"
+				if
+					not string.find(vim.bo.filetype, "blink-cmp-menu")
+					and not string.find(vim.bo.filetype, "snacks")
+				then
+					vim.treesitter.start()
+				end
 			end,
 		})
 	end,
