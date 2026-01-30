@@ -16,92 +16,215 @@ Why didn't I use a distro? I like to have full control over my configuration and
 
 ### General
 
-- `CTRL + X`: Close the current buffer without closing the window.
-- `;to`: Open a terminal
-- `;tc`: Close the terminal at the bottom of the window (Does not close all terminal buffers)
-- `;ww`: Tired of seeing `:W is not a command`? I was too. Use this to quicksave.
-- `;tt`: Open a new tab
+| Key        | Description                                                                          |
+|------------|--------------------------------------------------------------------------------------|
+| `CTRL + X` | Close the current buffer without closing the window.                                 |
+| `;to`      | Open a terminal                                                                      |
+| `;tc`      | Close the terminal at the bottom of the window (Does not close all terminal buffers) |
+| `;ww`      | Tired of seeing `:W is not a command`? I was too. Use this to quicksave.             |
+| `;tt`      | Open a new tab                                                                       |
 
 ### Symbols Outline
 
-- `;so`: Toggle Symbols Outline
-- `;soo`: Open Symbols Outline
-- `;soc`: Close Symbols Outline
-- `<Esc>`: Close Symbols Outline (When focused on Symbols Outline window)
-- `<Enter>`: Go to symbol (When focused on Symbols Outline window)
-- `o`: Focus location (When focused on Symbols Outline window)
-- `CTRL + SPACE`: Hover Symbol (When focused on Symbols Outline window)
-- `K`: Toggle preview (When focused on Symbols Outline window)
-- `r`: Rename symbol (When focused on Symbols Outline window)
-- `a`: Code actions (When focused on Symbols Outline window)
-- `h`: Fold symbol (When focused on Symbols Outline window)
-- `l`: Unfold symbol (When focused on Symbols Outline window)
-- `W`: Fold all symbols (When focused on Symbols Outline window)
-- `E`: Unfold all symbols (When focused on Symbols Outline window)
-- `R`: Reset folds (When focused on Symbols Outline window)
+| Key            | Description                                                        |
+|----------------|--------------------------------------------------------------------|
+| `;so`          | Toggle Symbols Outline                                             |
+| `;soo`         | Open Symbols Outline                                               |
+| `;soc`         | Close Symbols Outline                                              |
+| `<Esc>`        | Close Symbols Outline (When focused on Symbols Outline window)     |
+| `<Enter>`      | Go to symbol (When focused on Symbols Outline window)              |
+| `o`            | Focus location (When focused on Symbols Outline window)            |
+| `CTRL + SPACE` | Hover Symbol (When focused on Symbols Outline window)              |
+| `K`            | Toggle preview (When focused on Symbols Outline window)            |
+| `r`            | Rename symbol (When focused on Symbols Outline window)             |
+| `a`            | Code actions (When focused on Symbols Outline window)              |
+| `h`            | Fold symbol (When focused on Symbols Outline window)               |
+| `l`            | Unfold symbol (When focused on Symbols Outline window)             |
+| `W`            | Fold all symbols (When focused on Symbols Outline window)          |
+| `E`            | Unfold all symbols (When focused on Symbols Outline window)        |
+| `R`            | Reset folds (When focused on Symbols Outline window)               |
 
 ### LSP
 
-- `;e`: Open floating diagnostic window
-- `;qf`: Set quickfix list
-- `;gD`: Go to declaration
-- `;gd`: Go to definition
-- `;K`: Hover to see documentation
-- `gi`: Go to implementation
-- `CTRL + k`: Show signature help
-- `<space>wa`: Add workspace folder
-- `<space>wr`: Remove workspace folder
-- `<space>wl`: List workspace folders
-- `<space>D`: Type definition
-- `<space>rn`: Rename symbol
-- `<space>ca`: Code action
-- `gr`: Get references
-- `<space>f`: Format document
-- `<space>q`: Set Diagnostics in location list
-- `[d`: Get Previous diagnostic
-- `]d`: Get Next diagnostic
+| Key         | Description                      |
+|-------------|----------------------------------|
+| `;e`        | Open floating diagnostic window  |
+| `;qf`       | Set quickfix list                |
+| `;gD`       | Go to declaration                |
+| `;gd`       | Go to definition                 |
+| `;K`        | Hover to see documentation       |
+| `gi`        | Go to implementation             |
+| `CTRL + k`  | Show signature help              |
+| `<space>wa` | Add workspace folder             |
+| `<space>wr` | Remove workspace folder          |
+| `<space>wl` | List workspace folders           |
+| `<space>D`  | Type definition                  |
+| `<space>rn` | Rename symbol                    |
+| `<space>ca` | Code action                      |
+| `gr`        | Get references                   |
+| `<space>f`  | Format document                  |
+| `<space>q`  | Set Diagnostics in location list |
+| `[d`        | Get Previous diagnostic          |
+| `]d`        | Get Next diagnostic              |
 
 ### Debugger
 
-- `;b`: Toggle DAP breakpoint
-- `;gb`: Run debugger to cursor (DAP)
-- `;?`: Eval Under Cursor (DAP)
-- `<F1>`: (With Active Debugging Session) Continue
-- `<F2>`: (With Active Debugging Session) Step Into
-- `<F3>`: (With Active Debugging Session) Step Over
-- `<F4>`: (With Active Debugging Session) Step Out 
-- `<F5>`: (With Active Debugging Session) Step Out 
-- `<F13>`: (With Active Debugging Session) Restart 
+| Key     | Description                               |
+|---------|-------------------------------------------|
+| `;b`    | Toggle DAP breakpoint                     |
+| `;gb`   | Run debugger to cursor (DAP)              |
+| `;?`    | Eval Under Cursor (DAP)                   |
+| `<F1>`  | (With Active Debugging Session) Continue  |
+| `<F2>`  | (With Active Debugging Session) Step Into |
+| `<F3>`  | (With Active Debugging Session) Step Over |
+| `<F4>`  | (With Active Debugging Session) Step Out  |
+| `<F5>`  | (With Active Debugging Session) Step Out  |
+| `<F13>` | (With Active Debugging Session) Restart   |
 
 ### Dev Container
 
-- `;dcs`: Start Dev Container
-- `;dcr`: Rebuild Dev Container
-- `;dcf`: Enter Fullscreen Dev Container
-- `;dcff`: Exit Fullscreen Dev Container
+| Key     | Description                    |
+|---------|--------------------------------|
+| `;dcs`  | Start Dev Container            |
+| `;dcr`  | Rebuild Dev Container          |
+| `;dcf`  | Enter Fullscreen Dev Container |
+| `;dcff` | Exit Fullscreen Dev Container  |
 
 ### Git
 
-- `]c`: Next Hunk
-- `[c`: Previous Hunk
-- `;hs`: Stage Hunk
-- `;hr`: Reset Hunk
-- `;hS`: Stage Buffer
-- `;hu`: Undo Stage Hunk
-- `;hR`: Reset Buffer
-- `;hp`: Preview Hunk
-- `;hb`: Blame Line
-- `;tb`: Toggle Current Blame Line
-- `;hd`: Diff Current File
-- `;ted`: Toggle Deleted Lines
+| Key    | Description               |
+|--------|---------------------------|
+| `]c`   | Next Hunk                 |
+| `[c`   | Previous Hunk             |
+| `;hs`  | Stage Hunk                |
+| `;hr`  | Reset Hunk                |
+| `;hS`  | Stage Buffer              |
+| `;hu`  | Undo Stage Hunk           |
+| `;hR`  | Reset Buffer              |
+| `;hp`  | Preview Hunk              |
+| `;hb`  | Blame Line                |
+| `;tb`  | Toggle Current Blame Line |
+| `;hd`  | Diff Current File         |
+| `;ted` | Toggle Deleted Lines      |
+
+### Snacks
+
+Below is a list of the most important Snacks keybindings. All keys use `<leader>` by default, and most are available in normal mode unless noted otherwise.
+
+#### Pickers & Explorer
+| Key                | Description                  |
+|--------------------|------------------------------|
+| `<leader><space>`  | Smart Find Files             |
+| `<leader>,`        | Buffers                      |
+| `<leader>/`        | Grep                         |
+| `<leader>:`        | Command History              |
+| `<leader>n`        | Notification History         |
+| `<leader>e`        | File Explorer                |
+| `<leader>fb`       | Find Buffers                 |
+| `<leader>fc`       | Find Config File             |
+| `<leader>ff`       | Find Files                   |
+| `<leader>fg`       | Find Git Files               |
+| `<leader>fp`       | Projects                     |
+| `<leader>fr`       | Recent Files                 |
+
+#### Git
+| Key                | Description                  |
+|--------------------|------------------------------|
+| `<leader>gb`       | Git Branches                 |
+| `<leader>gl`       | Git Log                      |
+| `<leader>gL`       | Git Log Line                 |
+| `<leader>gs`       | Git Status                   |
+| `<leader>gS`       | Git Stash                    |
+| `<leader>gd`       | Git Diff (Hunks)             |
+| `<leader>gf`       | Git Log File                 |
+| `<leader>gi`       | GitHub Issues (open)         |
+| `<leader>gI`       | GitHub Issues (all)          |
+| `<leader>gp`       | GitHub PRs (open)            |
+| `<leader>gP`       | GitHub PRs (all)             |
+| `<leader>gB`       | Git Browse (n,v modes)       |
+| `<leader>gg`       | Lazygit                      |
+
+#### Grep & Search
+| Key                | Description                  |
+|--------------------|------------------------------|
+| `<leader>sb`       | Buffer Lines                 |
+| `<leader>sB`       | Grep Open Buffers            |
+| `<leader>sg`       | Grep                         |
+| `<leader>sw`       | Grep Word (n,x modes)        |
+| `<leader>s"`       | Registers                    |
+| `<leader>s/`       | Search History               |
+| `<leader>sa`       | Autocmds                     |
+| `<leader>sc`       | Command History              |
+| `<leader>sC`       | Commands                     |
+| `<leader>sd`       | Diagnostics                  |
+| `<leader>sD`       | Buffer Diagnostics           |
+| `<leader>sh`       | Help Pages                   |
+| `<leader>sH`       | Highlights                   |
+| `<leader>si`       | Icons                        |
+| `<leader>sj`       | Jumps                        |
+| `<leader>sk`       | Keymaps                      |
+| `<leader>sl`       | Location List                |
+| `<leader>sm`       | Marks                        |
+| `<leader>sM`       | Man Pages                    |
+| `<leader>sp`       | Plugin Spec                  |
+| `<leader>sq`       | Quickfix List                |
+| `<leader>sR`       | Resume                       |
+| `<leader>su`       | Undo History                 |
+| `<leader>ss`       | LSP Symbols                  |
+| `<leader>sS`       | LSP Workspace Symbols        |
+
+#### LSP (Language Server Protocol)
+| Key      | Description                |
+|----------|----------------------------|
+| `gd`     | Goto Definition            |
+| `gD`     | Goto Declaration           |
+| `gr`     | References                 |
+| `gI`     | Goto Implementation        |
+| `gy`     | Goto Type Definition       |
+| `gai`    | Calls Incoming             |
+| `gao`    | Calls Outgoing             |
+
+#### Toggles & Utilities
+| Key              | Description                      |
+|------------------|----------------------------------|
+| `<leader>z`      | Toggle Zen Mode                  |
+| `<leader>Z`      | Toggle Zoom                      |
+| `<leader>.`      | Toggle Scratch Buffer            |
+| `<leader>S`      | Select Scratch Buffer            |
+| `<leader>bd`     | Delete Buffer                    |
+| `<leader>cR`     | Rename File                      |
+| `<leader>un`     | Dismiss All Notifications        |
+| `<c-/>` or `<c-_>` | Toggle Terminal                |
+| `<leader>N`      | Neovim News                      |
+| `]] / [[`        | Next / Prev Reference            |
+
+#### Toggle Options
+| Key              | Description                         |
+|------------------|-------------------------------------|
+| `<leader>us`     | Toggle Spell Check                  |
+| `<leader>uw`     | Toggle Wrap                         |
+| `<leader>uL`     | Toggle Relative Line Number         |
+| `<leader>ud`     | Toggle Diagnostics                  |
+| `<leader>ul`     | Toggle Line Number                  |
+| `<leader>uc`     | Toggle Conceallevel                 |
+| `<leader>uT`     | Toggle Treesitter                   |
+| `<leader>ub`     | Toggle Dark Background              |
+| `<leader>uh`     | Toggle Inlay Hints                  |
+| `<leader>ug`     | Toggle Indent Guides                |
+| `<leader>uD`     | Toggle Dimming Inactive Windows     |
+
+> For even more snacks functionality, check out notifications, history, toggles, and plugin integrations!
 
 ### AI
 
-- `;oa`: Open an ask interaction with OpenCode
-- `;ox`: Open a select interaction with OpenCode
-- `;oc`: Toggle OpenCode Buffer
-- `;ogo`: Add range to OpenCode context
-- `;ogoo`: Add line to OpenCode context
+| Key    | Description                             |
+|--------|-----------------------------------------|
+| `;oa`  | Open an ask interaction with OpenCode   |
+| `;ox`  | Open a select interaction with OpenCode |
+| `;oc`  | Toggle OpenCode Buffer                  |
+| `;ogo` | Add range to OpenCode context           |
+| `;ogoo`| Add line to OpenCode context            |
+
 
 ## Autoutils
 
@@ -246,37 +369,17 @@ Required by a bunch of UI plugins.
 
 Provides outline of language symbols for easy navigation and code understanding.
 
-#### [**telescope.nvim**](https://github.com/nvim-telescope/telescope.nvim)
+#### ~~[**telescope.nvim**](https://github.com/nvim-telescope/telescope.nvim)~~ (Retired)
 
-*Depends On:*
-- [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
-- [telescope-live-grep-args](https://github.com/nvim-telescope/telescope-live-grep-args.nvim)
-- [telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)
-- [telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim)
-- [telescope-zoxide](https://github.com/jvgrootveld/telescope-zoxide)
-
-*System Dependencies (IMPORTANT):*
-
-You *must* install the following system packages for integrations with RipGrep and Zoxide to work:
-
-- [fzf](https://github.com/junegunn/fzf)
-- [RipGrep](https://github.com/BurntSushi/ripgrep)
-- [Zoxide](https://github.com/ajeetdsouza/zoxide)
-
-
-Provides a highly extendable fuzzy finder for Neovim, allowing you to quickly search and open files, buffers, and more.
-
-Made "smarter" by integrating live grep with arguments, a file browser, a UI selector, and Zoxide support.
+This configuration previously used telescope.nvim for fuzzy finding, file picking, live grep, and more. All Telescope features (file picker, buffer/project navigation, search, etc.) have now been replaced by [snacks.nvim](https://github.com/folke/snacks.nvim), a more unified and modern solution. Please see the Snacks section for equivalent (and expanded) functionality.
 
 #### [**tokyonight.nvim**](https://github.com/folke/tokyonight.nvim)
 
 Provides a theme for Neovim with a dark color scheme and various customization options.
 
-#### [**nvim-tree.lua**](https://github.com/nvim-tree/nvim-tree.lua)
+#### ~~[**nvim-tree.lua**](https://github.com/nvim-tree/nvim-tree.lua)~~ (Retired)
 
-Provides a file explorer tree for Neovim, allowing you to navigate and manage files and directories easily.
-
-Use alongside Harpoon and Telescope for maximum productivity.
+This config previously used nvim-tree.lua as the main file explorer, but it has been replaced by [snacks.nvim](https://github.com/folke/snacks.nvim), which provides a more modern and integrated solution for file navigation, project management, and explorer UI. See the Snacks section below for details.
 
 ### Util
 
@@ -321,4 +424,18 @@ Provides advanced syntax highlighting and code parsing for Neovim using Tree-sit
 #### [**nvim-ts-autotag**](https://github.com/windwp/nvim-ts-autotag)
 
 Provides automatic closing and renaming of HTML and XML tags using Tree-sitter.
+
+#### [**snacks.nvim**](https://github.com/folke/snacks.nvim)
+
+_snacks.nvim_ is now the **primary** fuzzy finder, file explorer, and picker for this configuration. It replaces both nvim-tree.lua (file explorer) and telescope.nvim (fuzzy finding, live grep, project navigation, selections, etc.).
+
+Features:
+- Modern notifications, prompts, pickers, and file/project/buffer navigation.
+- Powerful file explorer with tree, search, and preview functionality, fully replacing nvim-tree.
+- Extensive picker system for files, buffers, projects, LSP actions, history, git, and more—replacing Telescope's core.
+- Extra UI: notification history, toggles, scratch buffers, and more.
+- Used by other plugins such as OpenCode.nvim for seamless AI and command integration.
+
+See your keybindings above for Snacks-centric navigation, search, and explorer commands.
+
 
