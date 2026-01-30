@@ -1,3 +1,1 @@
-return {
-    "nvim-lua/popup.nvim",
-}
+return { "nvim-lua/popup.nvim" }
