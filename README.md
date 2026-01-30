@@ -12,8 +12,10 @@ Why didn't I use a distro? I like to have full control over my configuration and
 
 ## Keybindings Cheat Sheet
 
+> NOTE: All of these key bindings are in normal mode unless otherwise specified.
+
 ### General
-All of these key bindings are in normal mode unless otherwise specified.
+
 - `CTRL + X`: Close the current buffer without closing the window.
 - `;to`: Open a terminal
 - `;tc`: Close the terminal at the bottom of the window (Does not close all terminal buffers)
@@ -21,6 +23,7 @@ All of these key bindings are in normal mode unless otherwise specified.
 - `;tt`: Open a new tab
 
 ### Symbols Outline
+
 - `;so`: Toggle Symbols Outline
 - `;soo`: Open Symbols Outline
 - `;soc`: Close Symbols Outline
@@ -38,7 +41,7 @@ All of these key bindings are in normal mode unless otherwise specified.
 - `R`: Reset folds (When focused on Symbols Outline window)
 
 ### LSP
-All of these key bindings are in normal mode unless otherwise specified.
+
 - `;e`: Open floating diagnostic window
 - `;qf`: Set quickfix list
 - `;gD`: Go to declaration
@@ -59,7 +62,7 @@ All of these key bindings are in normal mode unless otherwise specified.
 - `]d`: Get Next diagnostic
 
 ### Debugger
-All of these key bindings are in normal mode unless otherwise specified.
+
 - `;b`: Toggle DAP breakpoint
 - `;gb`: Run debugger to cursor (DAP)
 - `;?`: Eval Under Cursor (DAP)
@@ -71,14 +74,14 @@ All of these key bindings are in normal mode unless otherwise specified.
 - `<F13>`: (With Active Debugging Session) Restart 
 
 ### Dev Container
-All of these key bindings are in normal mode unless otherwise specified.
+
 - `;dcs`: Start Dev Container
 - `;dcr`: Rebuild Dev Container
 - `;dcf`: Enter Fullscreen Dev Container
 - `;dcff`: Exit Fullscreen Dev Container
 
 ### Git
-All of these key bindings are in normal mode unless otherwise specified.
+
 - `]c`: Next Hunk
 - `[c`: Previous Hunk
 - `;hs`: Stage Hunk
@@ -93,7 +96,7 @@ All of these key bindings are in normal mode unless otherwise specified.
 - `;ted`: Toggle Deleted Lines
 
 ### AI
-All of these key bindings are in normal mode unless otherwise specified.
+
 - `;oa`: Open an ask interaction with OpenCode
 - `;ox`: Open a select interaction with OpenCode
 - `;oc`: Toggle OpenCode Buffer
@@ -118,7 +121,8 @@ Does not work when the window loses focus (e.g., switching to another applicatio
 
 ### AI
 
-[**Copilot.lua**](https://github.com/zbirenbaum/copilot.lua)
+#### [**Copilot.lua**](https://github.com/zbirenbaum/copilot.lua)
+
 *Depends On:* [copilot-lsp](https://github.com/copilotlsp-nvim/copilot-lsp)
 
 Provides inline AI code suggestions using GitHub Copilot.
@@ -138,7 +142,7 @@ Currently enabled for the following filetypes:
 
 > You need to run :Copilot auth and :Copilot setup after installing the plugin to use GitHub Copilot.
 
-[**OpenCode.nvim**](https://github.com/NickvanDyke/opencode.nvim)
+#### [**OpenCode.nvim**](https://github.com/NickvanDyke/opencode.nvim)
 
 *Depends On:* [snacks.nvim](https://github.com/folke/snacks.nvim)
 
@@ -148,7 +152,7 @@ Supports raw sessions, as well as ask and select interactions.
 
 ### LSP
 
-[**Blink.cmp**](https://github.com/saghen/blink.cmp)
+#### [**Blink.cmp**](https://github.com/saghen/blink.cmp)
 
 *Depends On:*
 - [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
@@ -159,7 +163,7 @@ Combines multiple completion sources, including AI-based suggestions from GitHub
 
 Integrates with neovim-lspconfig.
 
-[**Debugger Adapter Protocol (DAP)**](https://github.com/mfussenegger/nvim-dap)
+#### [**Debugger Adapter Protocol (DAP)**](https://github.com/mfussenegger/nvim-dap)
 
 *Depends On:*
 - [cmake-tools.nvim](https://github.com/Civitasv/cmake-tools.nvim)
@@ -175,7 +179,7 @@ Current config only supports C, C++, and Go, but adding more languages is straig
 
 Install your debugger of choice using Mason.nvim, configure it in `/lua/config/plugins/lsp/dap.lua`. If there is a plugin to extend the DAP for your language, install and configure that as well. Some plugins do the DAP configuration for you (e.g., nvim-dap-go).
 
-[**LSP Config**](https://github.com/neovim/nvim-lspconfig)
+#### [**LSP Config**](https://github.com/neovim/nvim-lspconfig)
 
 *Depends On:*
 - [blink.cmp](https://github.com/saghen/blink.cmp)
@@ -187,14 +191,14 @@ Provides Language Server Protocol (LSP) support for Neovim, enabling features li
 
 Install your language servers using Mason.nvim, then configure them in `/lua/config/plugins/lsp/lsp-config.lua`.
 
-[**LuaSnip**](https://github.com/L3MON4D3/LuaSnip)
+#### [**LuaSnip**](https://github.com/L3MON4D3/LuaSnip)
 
 *Depends On:*
 - [friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 
 Provides snippet support for Neovim, allowing you to insert predefined code snippets quickly.
 
-[**Mason.nvim**](https://github.com/williamboman/mason.nvim)
+#### [**Mason.nvim**](https://github.com/williamboman/mason.nvim)
 
 *Depends On:*
 - [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
@@ -204,45 +208,45 @@ Provides a package manager for Neovim, allowing you to easily install and manage
 
 ### UI
 
-[**Bufferline.nvim**](https://github.com/akinsho/bufferline.nvim)
+#### [**Bufferline.nvim**](https://github.com/akinsho/bufferline.nvim)
 
 Better looking tabline for Neovim, with support for icons and custom styling.
 
-[**vim-css-color**](https://github.com/ap/vim-css-color)
+#### [**vim-css-color**](https://github.com/ap/vim-css-color)
 
 Provides color previewing for CSS color codes directly in the editor.
 
 Sometimes doesn't work...
 
-[**nvim-web-devicons**](https://github.com/nvim-tree/nvim-web-devicons)
+#### [**nvim-web-devicons**](https://github.com/nvim-tree/nvim-web-devicons)
 
 Provides icons for various file types and plugins in Neovim.
 
-[**Harpoon 2**](https://github.com/ThePrimeagen/harpoon)
+#### [**Harpoon 2**](https://github.com/ThePrimeagen/harpoon)
 
 Provides quick file navigation and bookmarking capabilities within Neovim. (One of my favorites...)
 
-[**lualine.nvim**](https://github.com/nvim-lualine/lualine.nvim)
+#### [**lualine.nvim**](https://github.com/nvim-lualine/lualine.nvim)
 
 Provides a customizable status line for Neovim, displaying useful information such as file name, line number, and git branch.
 
-[**plenary.nvim**](https://github.com/nvim-lua/plenary.nvim)
+#### [**plenary.nvim**](https://github.com/nvim-lua/plenary.nvim)
 
 Provides a set of Lua functions and utilities for Neovim plugin development.
 
 Required by a bunch of UI plugins.
 
-[**popup.nvim**](https://github.com/nvim-lua/popup.nvim)
+#### [**popup.nvim**](https://github.com/nvim-lua/popup.nvim)
 
 Provides a popup API for Neovim, allowing plugins to create floating windows and menus.
 
 Required by a bunch of UI plugins.
 
-[**symbols-outline.nvim**](https://github.com/simrat39/symbols-outline.nvim)
+#### [**symbols-outline.nvim**](https://github.com/simrat39/symbols-outline.nvim)
 
 Provides outline of language symbols for easy navigation and code understanding.
 
-[**telescope.nvim**](https://github.com/nvim-telescope/telescope.nvim)
+#### [**telescope.nvim**](https://github.com/nvim-telescope/telescope.nvim)
 
 *Depends On:*
 - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
@@ -264,11 +268,11 @@ Provides a highly extendable fuzzy finder for Neovim, allowing you to quickly se
 
 Made "smarter" by integrating live grep with arguments, a file browser, a UI selector, and Zoxide support.
 
-[**tokyonight.nvim**](https://github.com/folke/tokyonight.nvim)
+#### [**tokyonight.nvim**](https://github.com/folke/tokyonight.nvim)
 
 Provides a theme for Neovim with a dark color scheme and various customization options.
 
-[**nvim-tree.lua**](https://github.com/nvim-tree/nvim-tree.lua)
+#### [**nvim-tree.lua**](https://github.com/nvim-tree/nvim-tree.lua)
 
 Provides a file explorer tree for Neovim, allowing you to navigate and manage files and directories easily.
 
@@ -276,45 +280,45 @@ Use alongside Harpoon and Telescope for maximum productivity.
 
 ### Util
 
-[**nvim-autopairs**](https://github.com/windwp/nvim-autopairs)
+#### [**nvim-autopairs**](https://github.com/windwp/nvim-autopairs)
 
 Automatically inserts matching pairs of brackets, quotes, and other characters as you type.
 
-[**vim-commentary**](https://github.com/tpope/vim-commentary)
+#### [**vim-commentary**](https://github.com/tpope/vim-commentary)
 
 Provides easy commenting and uncommenting of code blocks in Neovim.
 
-[**conform.nvim**](https://github.com/stevearc/conform.nvim)
+#### [**conform.nvim**](https://github.com/stevearc/conform.nvim)
 
 Provides automatic code formatting for Neovim, supporting multiple formatters and languages.
 
 Install your formatters using Mason.nvim, then configure them in `/lua/config/plugins/util/conform.lua`.
 
-[**nvim-dev-container**](https://github.com/esensar/nvim-dev-container)
+#### [**nvim-dev-container**](https://github.com/esensar/nvim-dev-container)
 
 Provides VSCode-like integration with development containers, allowing you to work within containerized environments seamlessly.
 
-[**fzf-lua**](https://github.com/ibhagwan/fzf-lua)
+#### [**fzf-lua**](https://github.com/ibhagwan/fzf-lua)
 
 Provides fuzzy finding capabilities using FZF for Neovim, allowing you to quickly search and open files, buffers, and more.
 
-[**gitsigns.nvim**](https://github.com/lewis6991/gitsigns.nvim)
+#### [**gitsigns.nvim**](https://github.com/lewis6991/gitsigns.nvim)
 
 Provides git integration for Neovim, displaying git changes and providing git-related commands.
 
-[**vim-visual-multi**](https://github.com/mg979/vim-visual-multi)
+#### [**vim-visual-multi**](https://github.com/mg979/vim-visual-multi)
 
 Provides multiple cursor support for Neovim, allowing you to edit multiple lines or occurrences of text simultaneously.
 
-[**vim-surround**](https://github.com/tpope/vim-surround)
+#### [**vim-surround**](https://github.com/tpope/vim-surround)
 
 Surround highlighted text with quotes, brackets, or other characters easily.
 
-[**tree-sitter.nvim**](https://github.com/nvim-treesitter/nvim-treesitter)
+#### [**tree-sitter.nvim**](https://github.com/nvim-treesitter/nvim-treesitter)
 
 Provides advanced syntax highlighting and code parsing for Neovim using Tree-sitter.
 
-[**nvim-ts-autotag**](https://github.com/windwp/nvim-ts-autotag)
+#### [**nvim-ts-autotag**](https://github.com/windwp/nvim-ts-autotag)
 
 Provides automatic closing and renaming of HTML and XML tags using Tree-sitter.
 
