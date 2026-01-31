@@ -9,14 +9,9 @@ return {
 		vim.wo[0][0].foldmethod = "expr"
 		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 		vim.api.nvim_create_autocmd({ "FileType" }, {
-			pattern = { "*" },
+			pattern = { "VeryLazy" },
 			callback = function()
-				if
-					not string.find(vim.bo.filetype, "blink-cmp-menu")
-					and not string.find(vim.bo.filetype, "snacks")
-				then
-					vim.treesitter.start()
-				end
+				vim.treesitter.start()
 			end,
 		})
 	end,
