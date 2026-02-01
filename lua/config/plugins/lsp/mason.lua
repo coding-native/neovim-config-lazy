@@ -18,7 +18,6 @@ return {
 				"pyright",
 				"tailwindcss",
 				"gopls",
-				"golangci_lint_ls",
 				"rust_analyzer",
 			},
 		})

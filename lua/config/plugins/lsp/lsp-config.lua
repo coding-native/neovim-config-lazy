@@ -245,6 +245,22 @@ return {
 					on_attach = on_attach,
 				})
 			end,
+			["protols"] = function()
+				lspconfig["protols"].setup({
+					capabilities = capabilities,
+					flags = lsp_flags,
+					on_attach = on_attach,
+					settings = {
+						protols = {
+							protos = {
+								"**/**/*.proto",
+								"src/proto/**/*.proto",
+								"proto/**/*.proto",
+							},
+						},
+					},
+				})
+			end,
 			["pyright"] = function()
 				lspconfig["pyright"].setup({
 					capabilities = capabilities,

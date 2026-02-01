@@ -12,6 +12,7 @@ return {
 			terraform = true, -- disallow specific filetype
 			javascript = true,
 			typescript = true,
+			proto = true,
 			python = true,
 			cpp = true,
 			csharp = true,
