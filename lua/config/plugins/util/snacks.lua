@@ -13,7 +13,30 @@ return {
 			enabled = true,
 			timeout = 3000,
 		},
-		picker = { enabled = true },
+		picker = {
+			enabled = true,
+			sources = {
+				harpoon = {
+					finder = function(opts, ctx)
+						local harpoon = require("harpoon"):list()
+						local files = {}
+						local cwd = vim.loop.cwd()
+						for idx, item in ipairs(harpoon.items) do
+							table.insert(files, {
+								cwd = cwd,
+								text = item.value,
+								file = item.value,
+								idx = idx,
+							})
+						end
+						return files
+					end,
+					format = "text",
+					preview = "file",
+					confirm = "jump",
+				},
+			},
+		},
 		quickfile = { enabled = true },
 		scope = { enabled = true },
 		scroll = { enabled = true },
@@ -559,6 +582,13 @@ return {
 			end,
 			desc = "Prev Reference",
 			mode = { "n", "t" },
+		},
+		{
+			"<C-e>",
+			desc = "Open Harpoon Picker",
+			function()
+				Snacks.picker.harpoon()
+			end,
 		},
 		{
 			"<leader>N",
