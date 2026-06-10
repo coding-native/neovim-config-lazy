@@ -1,15 +1,12 @@
 return {
 	"zbirenbaum/copilot.lua",
-	dependencies = {
-		"copilotlsp-nvim/copilot-lsp",
-	},
 	cmd = "Copilot",
 	event = "InsertEnter",
 	opts = {
 		filetypes = {
 			dockerfile = true,
-			markdown = true, -- overrides default
-			terraform = true, -- disallow specific filetype
+			markdown = true,
+			terraform = true,
 			javascript = true,
 			typescript = true,
 			proto = true,
@@ -18,16 +15,19 @@ return {
 			csharp = true,
 			go = true,
 			lua = true,
+			rust = true,
 			sh = function()
 				if string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "^%.env.*") then
-					-- disable for .env files
 					return false
 				end
 				return true
 			end,
-			["*"] = false, -- disable for all other filetypes
+			["*"] = false,
 		},
 		suggestion = { enabled = false },
 		panel = { enabled = false },
+		nes = {
+			enabled = false,
+		},
 	},
 }
