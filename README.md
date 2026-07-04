@@ -219,11 +219,14 @@ Below is a list of the most important Snacks keybindings. All keys use `;` by de
 
 | Key    | Description                             |
 |--------|-----------------------------------------|
-| `;oa`  | Open an ask interaction with OpenCode   |
-| `;ox`  | Open a select interaction with OpenCode |
-| `;oc`  | Toggle OpenCode Buffer                  |
-| `;ogo` | Add range to OpenCode context           |
-| `;ogoo`| Add line to OpenCode context            |
+| `;ai`  | Open an ACP coding agent                |
+| `;as`  | Select ACP Coding agent                 |
+| `;ad`  | Detach a coding agent                   |
+| `;at` | Send this               |
+| `;av`| Send visual selection           |
+| `;ap` | Sidekick Select Prompt           |
+| `;op` | Open OpenCode prompt           |
+
 
 
 ## Autoutils
@@ -249,6 +252,10 @@ Does not work when the window loses focus (e.g., switching to another applicatio
 *Depends On:* [copilot-lsp](https://github.com/copilotlsp-nvim/copilot-lsp)
 
 Provides inline AI code suggestions using GitHub Copilot.
+
+`copilot-lsp` configured to enable Next Edit Suggestions (NES) with:
+- `<Tab>` in normal mode to accept and walk through pending NES edits
+- `<Esc>` in normal mode to clear visible NES suggestions
 
 Currently enabled for the following filetypes:
 - C++
@@ -437,5 +444,4 @@ Features:
 - Used by other plugins such as OpenCode.nvim for seamless AI and command integration.
 
 See your keybindings above for Snacks-centric navigation, search, and explorer commands.
-
 
