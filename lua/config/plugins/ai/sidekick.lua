@@ -6,6 +6,11 @@ return {
         backend = "tmux",
         enabled = true,
       },
+      tools = {
+        hermes = {
+          cmd = { "hermes", "--tui", "--profile=software-engineer" },
+        }
+      }
     },
   },
   keys = {
