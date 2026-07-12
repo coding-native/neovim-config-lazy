@@ -22,6 +22,7 @@ return {
         end
         return true
       end,
+      yaml = true,
       ["*"] = false,
     },
     suggestion = { enabled = false },

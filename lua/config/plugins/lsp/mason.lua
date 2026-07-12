@@ -10,16 +10,25 @@ return {
     require("mason-lspconfig").setup({
       automatic_installation = true,
       ensure_installed = {
+        "bashls",
+        "clangd",
+        "cmake",
         "cssls",
+        "csharp_ls",
+        "dockerls",
         "eslint",
+        "glsl_analyzer",
         "gopls",
         "html",
         "jsonls",
         "lua_ls",
+        "marksman",
         "pyright",
         "rust_analyzer",
         "tailwindcss",
+        "templ",
         "ts_ls",
+        "vimls",
       },
     })
 
