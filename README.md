@@ -215,17 +215,20 @@ Below is a list of the most important Snacks keybindings. All keys use `;` by de
 
 > For even more snacks functionality, check out notifications, history, toggles, and plugin integrations!
 
-### AI
+### AI (Sidekick)
 
-| Key    | Description                             |
-|--------|-----------------------------------------|
-| `;ai`  | Open an ACP coding agent                |
-| `;as`  | Select ACP Coding agent                 |
-| `;ad`  | Detach a coding agent                   |
-| `;at` | Send this               |
-| `;av`| Send visual selection           |
-| `;ap` | Sidekick Select Prompt           |
-| `;op` | Open OpenCode prompt           |
+| Key      | Description                             |
+|----------|-----------------------------------------|
+| `;ai`    | Toggle Sidekick CLI (Hermes agent)      |
+| `;as`    | Select CLI tool (filter by installed)   |
+| `;ad`    | Detach/close CLI session                |
+| `;at`    | Send current buffer to agent            |
+| `;af`    | Send file to agent                      |
+| `;av`    | Send visual selection to agent          |
+| `;ap`    | Select prompt template                  |
+| `;oc`    | Toggle OpenCode CLI directly            |
+| `<Tab>`  | Accept/jump through NES suggestions     |
+| `<C-.>`  | Focus Sidekick (n, t, i, x modes)       |
 
 
 
@@ -247,38 +250,44 @@ Does not work when the window loses focus (e.g., switching to another applicatio
 
 ### AI
 
+#### [**Sidekick.nvim**](https://github.com/folke/sidekick.nvim)
+
+*Depends On:* None (mux backend: tmux)
+
+Primary AI coding agent interface. Provides tmux-based multiplexer for running CLI coding agents (Hermes, OpenCode, etc.) in isolated sessions.
+
+Features:
+- Toggle/focus CLI sessions with `<leader>ai` and `<C-.>`
+- Select from installed tools with `<leader>as`
+- Send buffer, file, or visual selection to agent (`<leader>at`, `<leader>af`, `<leader>av`)
+- Select prompt templates with `<leader>ap`
+- Direct OpenCode toggle with `<leader>oc`
+- Next Edit Suggestions (NES) integration via `<Tab>`
+
+Configured tools:
+- **Hermes** (`hermes --tui --profile=software-engineer`) - default coding agent
+- **OpenCode** - accessible via direct toggle or tool selection
+
+> Run `:Copilot auth` and `:Copilot setup` after installing to enable GitHub Copilot backend.
+
 #### [**Copilot.lua**](https://github.com/zbirenbaum/copilot.lua)
 
 *Depends On:* [copilot-lsp](https://github.com/copilotlsp-nvim/copilot-lsp)
 
-Provides inline AI code suggestions using GitHub Copilot.
+Provides inline AI code suggestions using GitHub Copilot via LSP.
 
-`copilot-lsp` configured to enable Next Edit Suggestions (NES) with:
+`copilot-lsp` configured for Next Edit Suggestions (NES) with:
 - `<Tab>` in normal mode to accept and walk through pending NES edits
-- `<Esc>` in normal mode to clear visible NES suggestions
+- Auto-debounce of 500ms for NES updates
 
-Currently enabled for the following filetypes:
-- C++
-- C#
-- Dockerfile
-- Go
-- Lua
-- Markdown
-- Javascript
-- Python
-- Shell (Disabled for .env files)
-- Terraform
-- Typescript
+Enabled filetypes:
+- C++, C#, Dockerfile, Go, Lua, Markdown, JavaScript, Python, Rust, TypeScript, Proto, YAML, Shell
+- Shell disabled for `.env*` files (security)
+- All other filetypes disabled by default
 
-> You need to run :Copilot auth and :Copilot setup after installing the plugin to use GitHub Copilot.
+#### ~~[**OpenCode.nvim**](https://github.com/NickvanDyke/opencode.nvim)~~ (Retired)
 
-#### [**OpenCode.nvim**](https://github.com/NickvanDyke/opencode.nvim)
-
-*Depends On:* [snacks.nvim](https://github.com/folke/snacks.nvim)
-
-Provides integration with OpenCode for agent-based AI coding assistance.
-
-Supports raw sessions, as well as ask and select interactions.
+OpenCode is now accessed through **Sidekick.nvim** as a CLI tool. Use `<leader>oc` to toggle OpenCode directly, or `<leader>as` to select it from the tool picker.
 
 ### LSP
 
@@ -288,10 +297,24 @@ Supports raw sessions, as well as ask and select interactions.
 - [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
 - [friendly-snippets](https://github.com/rafamadriz/friendly-snippets)
 - [blink-cmp-copilot](https://github.com/giuxtaposition/blink-cmp-copilot)
+- [sidekick.nvim](https://github.com/folke/sidekick.nvim) (for NES integration)
 
 Combines multiple completion sources, including AI-based suggestions from GitHub Copilot, to provide a comprehensive code completion experience.
 
 Integrates with neovim-lspconfig.
+
+**Sources enabled:**
+`lsp`, `path`, `snippets`, `buffer`, `copilot`
+
+**Key features:**
+- Rust-based fuzzy matcher (prefer_rust implementation)
+- Copilot source with score offset of 100 (prioritized)
+- Custom Copilot completion kind icon (``)
+- Default keymap preset (C-y to accept, C-n/C-p to navigate)
+- `<Tab>`: snippet forward → Sidekick NES jump/apply → accept completion → fallback
+- `<CR>`: accept completion
+- Documentation popup manual-only (auto_show = false)
+- Version-locked to 1.* series for pre-built binaries
 
 #### [**Debugger Adapter Protocol (DAP)**](https://github.com/mfussenegger/nvim-dap)
 
@@ -305,9 +328,29 @@ Integrates with neovim-lspconfig.
 
 Provides debugging capabilities for Neovim, with support for multiple programming languages and integration with Mason.nvim for managing debug adapters.
 
-Current config only supports C, C++, and Go, but adding more languages is straightforward.
+**Configured debug adapters:**
+- `codelldb` for C/C++ (asks for executable path on launch)
+- `dap-go` for Go (auto-configured)
 
-Install your debugger of choice using Mason.nvim, configure it in `/lua/config/plugins/lsp/dap.lua`. If there is a plugin to extend the DAP for your language, install and configure that as well. Some plugins do the DAP configuration for you (e.g., nvim-dap-go).
+**Virtual text features:**
+- Displays variable values inline during debugging
+- Redacts secrets/API keys automatically (shows `(凸ಠ益ಠ)凸`)
+- Truncates long values to 15 characters with `...`
+
+**Keybindings:**
+| Key | Description |
+|-----|-------------|
+| `;b` | Toggle breakpoint |
+| `;gb` | Run to cursor |
+| `;?` | Evaluate expression under cursor |
+| `<F1>` | Continue |
+| `<F2>` | Step into |
+| `<F3>` | Step over |
+| `<F4>` | Step out |
+| `<F5>` | Step back |
+| `<F13>` | Restart session |
+
+To add more languages: install the debugger via Mason, configure in `/lua/config/plugins/lsp/dap.lua`, and add language-specific dap plugin if available (e.g., `nvim-dap-go`).
 
 #### [**LSP Config**](https://github.com/neovim/nvim-lspconfig)
 
@@ -320,6 +363,35 @@ Install your debugger of choice using Mason.nvim, configure it in `/lua/config/p
 Provides Language Server Protocol (LSP) support for Neovim, enabling features like code completion, diagnostics, and code navigation.
 
 Install your language servers using Mason.nvim, then configure them in `/lua/config/plugins/lsp/lsp-config.lua`.
+
+**Configured servers:**
+- `bashls` (Bash, Zsh)
+- `clangd` (C/C++ with clang-tidy)
+- `cmake` (CMake)
+- `cssls` (CSS)
+- `csharp_ls` (C#)
+- `dockerls` (Dockerfile)
+- `eslint` (JavaScript/TypeScript linting)
+- `glsl_analyzer` (GLSL)
+- `gopls` (Go)
+- `helmls` (Helm charts)
+- `html` (HTML)
+- `jsonls` (JSON)
+- `lua_ls` (Lua - disabled for Neovim config directory)
+- `marksman` (Markdown)
+- `protols` (Protocol Buffers)
+- `pyright` (Python)
+- `rust_analyzer` (Rust)
+- `tailwindcss` (Tailwind CSS - wide filetype support including Rust, Templ)
+- `templ` (Templ templates)
+- `ts_ls` (TypeScript/JavaScript)
+- `vimls` (Vim script)
+- `yamlls` (YAML with docker-compose schema)
+
+**Key features:**
+- Incremental sync disabled globally to avoid races on ephemeral UI buffers
+- Per-server customizations (e.g., gopls with staticcheck, lua_ls with LuaJIT runtime)
+- Guard against attaching LSP to non-file buffers (snacks picker, terminals)
 
 #### [**LuaSnip**](https://github.com/L3MON4D3/LuaSnip)
 
@@ -335,6 +407,12 @@ Provides snippet support for Neovim, allowing you to insert predefined code snip
 - [mason-tool-installer.nvim](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim)
 
 Provides a package manager for Neovim, allowing you to easily install and manage LSP servers, DAP servers, linters, and formatters.
+
+**Auto-installed LSP servers:**
+`bashls`, `clangd`, `cmake`, `cssls`, `csharp_ls`, `dockerls`, `eslint`, `glsl_analyzer`, `gopls`, `html`, `jsonls`, `lua_ls`, `marksman`, `pyright`, `rust_analyzer`, `tailwindcss`, `templ`, `ts_ls`, `vimls`
+
+**Auto-installed tools:**
+`prettier`, `isort`, `black`, `pylint`, `eslint_d`
 
 ### UI
 
@@ -354,7 +432,27 @@ Provides icons for various file types and plugins in Neovim.
 
 #### [**Harpoon 2**](https://github.com/ThePrimeagen/harpoon)
 
+*Depends On:*
+- [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
+- [snacks.nvim](https://github.com/folke/snacks.nvim)
+
 Provides quick file navigation and bookmarking capabilities within Neovim. (One of my favorites...)
+
+**Branch:** `harpoon2` (latest version)
+
+**Keybindings:**
+| Key | Description |
+|-----|-------------|
+| `;a` | Add file to Harpoon list |
+| `;r` | Remove file from Harpoon list |
+| `C-h` | Go to marked file 1 |
+| `C-t` | Go to marked file 2 |
+| `C-n` | Go to marked file 3 |
+| `C-s` | Go to marked file 4 |
+| `C-S-P` | Go to previous marked file |
+| `C-S-N` | Go to next marked file |
+
+**Integration:** Harpoon marks are accessible via Snacks picker (`;ff` → harpoon source) for fuzzy selection.
 
 #### [**lualine.nvim**](https://github.com/nvim-lualine/lualine.nvim)
 
@@ -394,6 +492,8 @@ This config previously used nvim-tree.lua as the main file explorer, but it has 
 
 Automatically inserts matching pairs of brackets, quotes, and other characters as you type.
 
+Disabled for: `TelescopePrompt`, `vim` filetypes.
+
 #### [**vim-commentary**](https://github.com/tpope/vim-commentary)
 
 Provides easy commenting and uncommenting of code blocks in Neovim.
@@ -402,19 +502,50 @@ Provides easy commenting and uncommenting of code blocks in Neovim.
 
 Provides automatic code formatting for Neovim, supporting multiple formatters and languages.
 
-Install your formatters using Mason.nvim, then configure them in `/lua/config/plugins/util/conform.lua`.
+**Formatters by filetype:**
+- `go`: gofmt, goimports, golines
+- `html`, `javascript`, `typescript`: prettierd
+- `python`: ruff_format, ruff_organize_imports
+- `rust`: rustfmt
+- `templ`: templ
+
+Format on save with 500ms timeout, falls back to LSP formatting if no conform formatter available.
 
 #### [**nvim-dev-container**](https://github.com/esensar/nvim-dev-container)
 
 Provides VSCode-like integration with development containers, allowing you to work within containerized environments seamlessly.
 
+**Keybindings:**
+| Key | Description |
+|-----|-------------|
+| `;dcs` | Start Dev Container |
+| `;dca` | Attach to Dev Container |
+| `;dcr` | Stop Dev Container |
+| `;dcf` | Enter Fullscreen Dev Container |
+| `;dcff` | Exit Fullscreen Dev Container |
+
+**Mount configuration:**
+- `neovim_config`: mounted read-only
+- `neovim_data`, `neovim_state`: disabled
+
 #### [**fzf-lua**](https://github.com/ibhagwan/fzf-lua)
 
-Provides fuzzy finding capabilities using FZF for Neovim, allowing you to quickly search and open files, buffers, and more.
+Provides fuzzy finding capabilities using FZF for Neovim. Available as an alternative picker system, though Snacks.nvim is the primary picker in this config.
 
 #### [**gitsigns.nvim**](https://github.com/lewis6991/gitsigns.nvim)
 
 Provides git integration for Neovim, displaying git changes and providing git-related commands.
+
+**Features enabled:**
+- Signs for add/change/delete/untracked
+- Watch git dir (follow files)
+- Attach to untracked files
+- Current line blame (toggleable)
+- Hunk preview, stage, reset, undo stage
+- Buffer-level stage/reset
+- Diff against index or HEAD
+
+See the Git keybindings section for the full list of commands.
 
 #### [**vim-visual-multi**](https://github.com/mg979/vim-visual-multi)
 
@@ -428,20 +559,54 @@ Surround highlighted text with quotes, brackets, or other characters easily.
 
 Provides advanced syntax highlighting and code parsing for Neovim using Tree-sitter.
 
+**Installed parsers:**
+`bicep`, `bash`, `c`, `css`, `c_sharp`, `cmake`, `cpp`, `diff`, `dockerfile`, `go`, `graphql`, `html`, `jsdoc`, `json`, `json5`, `latex`, `lua`, `make`, `markdown`, `python`, `regex`, `rust`, `scss`, `sql`, `templ`, `terraform`, `toml`, `tsx`, `twig`, `vim`, `yaml`
+
+**Features:**
+- Syntax highlighting enabled
+- Indentation via treesitter
+- Autotag integration
+- Rainbow delimiters (extended mode)
+- Fold expressions via treesitter
+- Custom language registrations: `templ`, `twig` (for tera)
+
 #### [**nvim-ts-autotag**](https://github.com/windwp/nvim-ts-autotag)
 
 Provides automatic closing and renaming of HTML and XML tags using Tree-sitter.
+
+#### [**nvim-treesitter-textobjects**](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
+
+Provides text object selections based on Tree-sitter syntax nodes (functions, classes, parameters, etc.).
+
+Built-in ftplugin mappings disabled globally (`vim.g.no_plugin_maps = true`) to avoid conflicts.
 
 #### [**snacks.nvim**](https://github.com/folke/snacks.nvim)
 
 _snacks.nvim_ is now the **primary** fuzzy finder, file explorer, and picker for this configuration. It replaces both nvim-tree.lua (file explorer) and telescope.nvim (fuzzy finding, live grep, project navigation, selections, etc.).
 
-Features:
+**Enabled modules:**
+- `bigfile` - optimized handling for large files
+- `dashboard` - startup dashboard
+- `explorer` - file explorer (replaces netrw)
+- `indent` - indent guides
+- `input` - input prompts
+- `notifier` - notifications (3s timeout)
+- `picker` - unified picker system with custom sources
+- `quickfile` - quick file switching
+- `scope` - scope highlighting
+- `scroll` - smooth scrolling
+- `statuscolumn` - custom status column
+- `words` - word highlighting
+
+**Custom picker sources:**
+- `harpoon` - integrated Harpoon mark navigation via snacks picker
+
+**Key features:**
 - Modern notifications, prompts, pickers, and file/project/buffer navigation.
 - Powerful file explorer with tree, search, and preview functionality, fully replacing nvim-tree.
 - Extensive picker system for files, buffers, projects, LSP actions, history, git, and more—replacing Telescope's core.
 - Extra UI: notification history, toggles, scratch buffers, and more.
-- Used by other plugins such as OpenCode.nvim for seamless AI and command integration.
+- Used by other plugins such as Sidekick.nvim for seamless AI and command integration.
 
 See your keybindings above for Snacks-centric navigation, search, and explorer commands.
 
