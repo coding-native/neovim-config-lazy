@@ -36,8 +36,6 @@ return {
         end)
         return
       end
-      local bufopts = { noremap = true, silent = true, buffer = bufnr }
-      -- You can set up buffer-local keymaps here if needed
 
       vim.api.nvim_set_option_value("omnifunc", "v:lua.vim.lsp.omnifunc", { buf = bufnr })
       vim.api.nvim_create_autocmd("CursorHold", {
@@ -126,28 +124,24 @@ return {
           flags = lsp_flags,
         })
       end,
-      ["azure_pipelines_ls"] = function()
-        lspconfig["azure_pipelines_ls"].setup({
+
+      ["yamlls"] = function()
+        lspconfig["yamlls"].setup({
           capabilities = capabilities,
           flags = lsp_flags,
-          on_attach = function(client, bufnr)
+          --[[on_attach = function(client, bufnr)
             if vim.api.nvim_get_option_value("filetype", { buf = bufnr }) == "helm" then
               vim.lsp.stop_client(client.dynamic_capabilities.client_id, true)
               vim.lsp.buf_detach_client(bufnr, client.dynamic_capabilities.client_id)
               return
             end
             on_attach(client, bufnr)
-          end,
-          cmd = { "azure-pipelines-language-server", "--stdio" },
-          root_dir = lspconfig.util.root_pattern(".git", ".azure-pipelines", "azure-pipelines.yml"),
+          end, ]] --
+          on_attach = on_attach,
+          root_dir = lspconfig.util.root_pattern(".git", "docker-compose.yml"),
           settings = {
             yaml = {
               schemas = {
-                ["https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"] = {
-                  "/.cicd/azure-pipelines/**/*.yml",
-                  "/.cicd/azure-pipelines/azure-pipelines.yml",
-                  "/azure-pipelines.yml",
-                },
                 ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = {
                   "/docker-compose.yml",
                   "/docker-compose.*.yml",
@@ -158,6 +152,7 @@ return {
           },
         })
       end,
+
       ["bashls"] = function()
         lspconfig["bashls"].setup({
           capabilities = capabilities,
@@ -166,6 +161,7 @@ return {
           filetypes = { "sh", "bash", "zsh" },
         })
       end,
+
       ["clangd"] = function()
         lspconfig["clangd"].setup({
           capabilities = capabilities,
@@ -174,6 +170,7 @@ return {
           cmd = { "clangd", "--background-index", "--clang-tidy" },
         })
       end,
+
       ["cmake"] = function()
         lspconfig["cmake"].setup({
           capabilities = capabilities,
@@ -181,6 +178,7 @@ return {
           on_attach = on_attach,
         })
       end,
+
       ["csharp_ls"] = function()
         lspconfig["csharp_ls"].setup({
           capabilities = capabilities,
@@ -189,6 +187,7 @@ return {
           cmd = { "csharp-ls" },
         })
       end,
+
       ["cssls"] = function()
         lspconfig["cssls"].setup({
           capabilities = capabilities,
@@ -196,6 +195,7 @@ return {
           on_attach = on_attach,
         })
       end,
+
       ["dockerls"] = function()
         lspconfig["dockerls"].setup({
           capabilities = capabilities,
@@ -203,6 +203,7 @@ return {
           on_attach = on_attach,
         })
       end,
+
       ["glsl_analyzer"] = function()
         lspconfig["glsl_analyzer"].setup({
           capabilities = capabilities,
@@ -210,6 +211,7 @@ return {
           on_attach = on_attach,
         })
       end,
+
       ["gopls"] = function()
         lspconfig["gopls"].setup({
           capabilities = capabilities,
@@ -224,6 +226,7 @@ return {
           },
         })
       end,
+
       ["helmls"] = function()
         lspconfig["helmls"].setup({
           capabilities = capabilities,
@@ -231,6 +234,7 @@ return {
           on_attach = on_attach,
         })
       end,
+
       ["jsonls"] = function()
         lspconfig["jsonls"].setup({
           capabilities = capabilities,
@@ -238,6 +242,7 @@ return {
           on_attach = on_attach,
         })
       end,
+
       ["lua_ls"] = function()
         -- Disable incremental sync for lua_ls to avoid sync.lua assertion
         -- races on config/project buffers (prompt/picker edge cases).
@@ -270,6 +275,7 @@ return {
           },
         })
       end,
+
       ["marksman"] = function()
         lspconfig["marksman"].setup({
           capabilities = capabilities,
@@ -277,6 +283,7 @@ return {
           on_attach = on_attach,
         })
       end,
+
       ["protols"] = function()
         lspconfig["protols"].setup({
           capabilities = capabilities,
@@ -300,6 +307,7 @@ return {
           on_attach = on_attach,
         })
       end,
+
       ["rust_analyzer"] = function()
         lspconfig["rust_analyzer"].setup({
           capabilities = capabilities,
@@ -388,9 +396,11 @@ return {
           },
         })
       end,
+
       ["templ"] = function()
         lspconfig["templ"].setup({})
       end,
+
       ["ts_ls"] = function()
         lspconfig["ts_ls"].setup({
           capabilities = capabilities,
@@ -399,6 +409,7 @@ return {
           root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git"),
         })
       end,
+
       ["vimls"] = function()
         lspconfig["vimls"].setup({
           capabilities = capabilities,
